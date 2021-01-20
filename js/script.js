@@ -108,7 +108,7 @@ function showQuestion(i) {
 
 function endQuiz() {
   var html = "";
-  html += `<h2>You have reached the end of the quiz!</h2>
+  html += `<h2 class="reach-end">You have reached the end of the quiz!</h2>
   <h3>Your score is: ${timerCountDown}</h3>
   <h4>Your Initials:</h4>
   <input id="initials" type="text">
