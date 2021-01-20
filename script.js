@@ -1,20 +1,12 @@
 /*
-
-Create templates for HTML, JS, and CSS -- DONE!
-
-Start Button
-
-Create data structure that holds questions and asnwers
-
-Timer 
-
-Score display - data structure to keep track of highscores 
-
-Process to show questions and allow selection of answers
-
-End or Repeat Game button
+-Create templates for HTML, JS, and CSS -- DONE!
+-Start Button
+-Create data structure that holds questions and asnwers
+-Timer 
+-Score display - data structure to keep track of highscores 
+-Process to show questions and allow selection of answers
+-End or Repeat Game button
 */
-
 // Data structure for Q&A
 // Question, possible answers, indication of correct answer
 
@@ -30,11 +22,10 @@ var questions = [
     c: 1,
   },
   {
-    q: "What is your favorite shoes",
-    a: ["Heals", "Sneakers", "Flats", "Pumps"],
+    q: "What is your favorite city",
+    a: ["London", "Paris", "New York", "Dubai"],
     c: 1,
   },
-
 ];
 
 function initialize() {
@@ -46,17 +37,14 @@ function start() {
   // loop to show the questions and answers
   var i = 0; // start with the first question
   showQuestion(i);
-
   // start timer
   // .....
 }
 
 function check_answer(questionNumber, answerIndex) {
   //prompt(questionNumber + " " + answerIndex);
-
   // For the incoming question number, see if the correct answerIndex was clicked.
   var current_q = questions[questionNumber];
-
   if (current_q.c === answerIndex) {
     // Play sound
     // Show correct
