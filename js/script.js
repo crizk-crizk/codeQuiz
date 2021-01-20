@@ -46,11 +46,17 @@ function start() {
   var i = 0; // start with the first question
   showQuestion(i);
   // start timer
-
   countdown = setInterval(function () {
-    document.getElementById("timer").innerHTML =
-      "<h2>" + timerCountDown + "</h2>";
-    timerCountDown--;
+    //stop timer - Time is up!
+    if (timerCountDown > 0) {
+      document.getElementById("timer").innerHTML =
+        "<h2>" + timerCountDown + "</h2>";
+      // decrement timer
+      timerCountDown--;
+    } else {
+      document.getElementById("timer").innerHTML = "<h2> Time is Up! </h2>";
+      endQuiz();
+    }
   }, 1000);
 }
 
@@ -74,7 +80,8 @@ function check_answer(questionNumber, answerIndex) {
     // show "Wrong!"
     document.getElementById("message").innerHTML = "<h2>Wrong! Try again</h2>";
 
-    // subtract some time from the timer....
+    // subtract 5 points from the timer....
+    timerCountDown -= 5;
   }
 
   // Proceed to and display the next question... (but was this the last question?)
@@ -110,6 +117,7 @@ function endQuiz() {
   document.getElementById("quiz").innerHTML = html;
 }
 
+
 function submit_score() {
   console.log("inside score");
   // set item on localstorage
@@ -129,9 +137,7 @@ function submit_score() {
   localStorage.setItem("allData", JSON.stringify(allData));
 
   // redirect to scores page upon finishing quiz
-  location.href = "scores.html"
-
-
+  location.href = "scores.html";
 }
 
 initialize();
