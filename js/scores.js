@@ -15,4 +15,8 @@ function displayScores() {
   scoreTable.innerHTML = bodyTableString;
 }
 
+document.getElementById('clear-scores').addEventListener('click', function(){
+    localStorage.removeItem('allData');
+});
+
 displayScores();
