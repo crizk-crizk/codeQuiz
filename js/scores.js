@@ -15,8 +15,10 @@ function displayScores() {
   scoreTable.innerHTML = bodyTableString;
 }
 
-document.getElementById('clear-scores').addEventListener('click', function(){
-    localStorage.removeItem('allData');
+document.getElementById("clear-scores").addEventListener("click", function () {
+  localStorage.removeItem("allData");
+  // refreshes scores page upon clearing high scores
+  location.reload();
 });
 
 displayScores();

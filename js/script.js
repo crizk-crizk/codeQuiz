@@ -125,7 +125,10 @@ function submit_score() {
 
   localStorage.setItem("allData", JSON.stringify(allData));
 
-  // location.href = "./scores.html";
+  // redirect to scores page upon finishing quiz
+  location.href = "scores.html"
+
+
 }
 
 initialize();
