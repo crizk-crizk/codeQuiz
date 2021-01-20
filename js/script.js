@@ -115,13 +115,13 @@ function submit_score() {
 
   var userScore = timerCountDown;
   //ensure that JSON.parse never gets undefined
-  var allData = localStorage.getItem('allData') || "[]";
+  var allData = localStorage.getItem("allData") || "[]";
   allData = JSON.parse(allData);
   // put all records into one variable
-  allData.push( {
-    [userInitial]: userScore,
-  }
-  );
+  allData.push({
+    initials: userInitial,
+    score: userScore,
+  });
 
   localStorage.setItem("allData", JSON.stringify(allData));
 
