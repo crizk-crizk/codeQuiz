@@ -64,10 +64,13 @@ function check_answer(questionNumber, answerIndex) {
     document.getElementById("message").innerHTML =
       "<h2>Correct! Good job!</h2>";
 
-    // Play sound
+    // Play sound when correct
+    document.getElementById("correct-sound").play();
+
     // Show correct
   } else {
     // play sound
+    document.getElementById("wrong-sound").play();
     // show "Wrong!"
     document.getElementById("message").innerHTML = "<h2>Wrong! Try again</h2>";
 
