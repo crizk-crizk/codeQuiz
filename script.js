@@ -11,7 +11,7 @@
 // Question, possible answers, indication of correct answer
 
 var timerCountDown = 60;
-var countdown = '';
+var countdown = "";
 
 var questions = [
   {
@@ -108,18 +108,21 @@ function endQuiz() {
 }
 
 function submit_score() {
+  console.log("inside score");
   // set item on localstorage
 
   var userInitial = document.getElementById("initials").value;
 
   var userScore = timerCountDown;
-
+  var allData = localStorage.getItem('allData') || [];
+  allData = JSON.parse(allData);
   // put all records into one variable
-  var allData = []
+  allData = [{
+    [userInitial]: userScore,
+  }
+  ];
 
-  localStorage.setItem('allData', allData);
-
-
+  localStorage.setItem("allData", JSON.stringify(allData));
 
   // location.href = "./scores.html";
 }
