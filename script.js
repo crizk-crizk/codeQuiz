@@ -10,21 +10,29 @@
 // Data structure for Q&A
 // Question, possible answers, indication of correct answer
 
+var timerCountDown = 60;
+var countdown = '';
+
 var questions = [
   {
     q: "What is your favorite color?",
     a: ["Red", "Blue", "Yellow", "Rainbow"],
-    c: 1,
+    c: 0,
   },
   {
     q: "What is your favorite food",
     a: ["Cake", "Steak", "Rice", "Fish"],
-    c: 1,
+    c: 2,
   },
   {
     q: "What is your favorite city",
     a: ["London", "Paris", "New York", "Dubai"],
     c: 1,
+  },
+  {
+    q: "What is your favorite animal",
+    a: ["bird", "dog", "cat", "rat"],
+    c: 3,
   },
 ];
 
@@ -38,24 +46,42 @@ function start() {
   var i = 0; // start with the first question
   showQuestion(i);
   // start timer
-  // .....
+
+  countdown = setInterval(function () {
+    document.getElementById("timer").innerHTML =
+      "<h2>" + timerCountDown + "</h2>";
+    timerCountDown--;
+  }, 1000);
 }
 
 function check_answer(questionNumber, answerIndex) {
   //prompt(questionNumber + " " + answerIndex);
   // For the incoming question number, see if the correct answerIndex was clicked.
   var current_q = questions[questionNumber];
+
   if (current_q.c === answerIndex) {
+    console.log("correct");
+    document.getElementById("message").innerHTML =
+      "<h2>Correct! Good job!</h2>";
+
     // Play sound
     // Show correct
   } else {
     // play sound
     // show "Wrong!"
+    document.getElementById("message").innerHTML = "<h2>Wrong! Try again</h2>";
+
     // subtract some time from the timer....
   }
 
   // Proceed to and display the next question... (but was this the last question?)
-  showQuestion(questionNumber + 1);
+  if (questions.length > questionNumber + 1) {
+    showQuestion(questionNumber + 1);
+  } else {
+    console.log("no more questions");
+    clearInterval(countdown);
+    endQuiz();
+  }
 }
 
 function showQuestion(i) {
@@ -68,6 +94,34 @@ function showQuestion(i) {
   }
   // display in the quiz div
   document.getElementById("quiz").innerHTML = html;
+}
+
+function endQuiz() {
+  var html = "";
+  html += `<h2>You have reached the end of the quiz!</h2>
+  <h4>Your Initials:</h4>
+  <input id="initials" type="text">
+  <button onclick="submit_score()">Submit</button>
+`;
+
+  document.getElementById("quiz").innerHTML = html;
+}
+
+function submit_score() {
+  // set item on localstorage
+
+  var userInitial = document.getElementById("initials").value;
+
+  var userScore = timerCountDown;
+
+  // put all records into one variable
+  var allData = []
+
+  localStorage.setItem('allData', allData);
+
+
+
+  // location.href = "./scores.html";
 }
 
 initialize();
