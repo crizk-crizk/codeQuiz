@@ -15,25 +15,25 @@ var countdown = "";
 
 var questions = [
   {
-    q: "What is your favorite color?",
-    a: ["Red", "Blue", "Yellow", "Rainbow"],
-    c: 0,
-  },
-  {
-    q: "What is your favorite food",
-    a: ["Cake", "Steak", "Rice", "Fish"],
-    c: 2,
-  },
-  {
-    q: "What is your favorite city",
-    a: ["London", "Paris", "New York", "Dubai"],
+    q: "What attribute can you use only one per page?",
+    a: ["class", "id", "alt", "href"],
     c: 1,
   },
   {
-    q: "What is your favorite animal",
-    a: ["bird", "dog", "cat", "rat"],
-    c: 3,
+    q: "Which of the following is falsey?",
+    a: ["10", "'0'", "0 (zero)", "Fish"],
+    c: 2,
   },
+  {
+    q: "Which function would you use to convert from a string to JavaScript object",
+    a: ["JSON.stringify", "JSON.parse", "document.stringme", "var string"],
+    c: 1,
+  },
+  {
+    q: "Which property do you use to change the color of text in CSS?",
+    a: ["text-color", "text-looks", "color", "color-text"],
+    c: 3,
+  }
 ];
 
 function initialize() {
@@ -100,7 +100,7 @@ function showQuestion(i) {
   html += `<h2>${current_q.q}</h2>`;
   // add the answers (as buttons) buttons need listener...
   for (b = 0; b < current_q.a.length; b++) {
-    html += `<button onclick="check_answer(${i},${b})">${current_q.a[b]}</button>`;
+    html += `<button class="buttons" onclick="check_answer(${i},${b})">${current_q.a[b]}</button>`;
   }
   // display in the quiz div
   document.getElementById("quiz").innerHTML = html;
