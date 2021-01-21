@@ -15,6 +15,6 @@
 ### Live Link: https://crizk-crizk.github.io/codeQuiz/
 
 
-![](/screenshots/start_page.png)
-![](/screenshots/question_page.png)
-![](/screenshots/endquiz_page.png)
+![](./screenshots/start_page.png)
+![](./screenshots/question_page.png)
+![](./screenshots/endquiz_page.png)
